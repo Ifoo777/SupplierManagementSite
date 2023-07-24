@@ -1,0 +1,40 @@
+﻿@using SupplierManagementSite.Models;
+@model List<Supplier>
+@{
+    
+}
+
+<div class="d-flex flex-row">
+    <div class="flex-grow-1">
+        <input name="filter" id="filter" class="form-control" />
+    </div>
+    <div class="flex-grow-0">
+        <button id="filterApply" data-url="@Url.Action("Index","Supplier")" class="btn btn-primary">Search</button>
+    </div>
+</div>
+
+
+
+
+<br />
+
+<a asp-controller="Supplier" asp-action="Add" class="btn btn-secondary">Add</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Telephone Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.TelephoneNumber</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
